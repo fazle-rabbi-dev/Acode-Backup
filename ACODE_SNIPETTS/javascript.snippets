@@ -216,13 +216,21 @@ snippet rfce
 	
 	export default Demo;
 snippet rafce
-	import React from 'react';
+	import {
+		useState, useEffect
+	} from 'react';
 
 	const Name = () => {
+	  const [${1},${1}] = useState('${2}')
+	  
+	  useEffect(=>{
+	  	
+	  },[])
+	  
 	  return(
-		<div>
-			
-		</div>
+		<>
+			${3}
+		</>
 	  );
 	};
 	
@@ -1625,11 +1633,15 @@ snippet rafcp
 	
 # Creates a React Arrow Function Component with ES7 module system
 snippet rafce
-	import React from 'react'
+	import {
+		useState, useEffect
+	} from 'react';
 	
 	const ${1:${TM_FILENAME_BASE}} = () => {
 	  return (
-	    <div>${1:first}</div>
+	    <>
+		    ${1:first}
+	    </>
 	  )
 	}
 	
