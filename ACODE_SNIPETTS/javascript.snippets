@@ -1,7 +1,7 @@
 # ================================================
 # React.js Snippets
 # ================================================
-snippet impc
+snippet impcomp
 	import { ${0} } from "@/components"
 
 snippet imprq
@@ -11,13 +11,25 @@ snippet imph
 	import { ${0} } from "@/hooks"
 
 snippet impu
-	import { ${0} } from "@/utils"
+	import { ${0} } from "@/lib/utils"
 
 snippet implib
 	import { ${1} } from "@/lib/${0}"
 
+snippet impstore
+	import { ${0} } from "@/store"
+
+snippet imppages
+	import { ${0} } from "@/pages"
+
+snippet impconst
+	import { ${0} } from "@/store"
+
 snippet imprt
 	import { ${0} } from "react-router-dom"
+
+snippet impreact
+	import { useState, useEffect } from "react"
 
 snippet useRouterSnippet
 	const router = useRouter();
@@ -27,10 +39,8 @@ snippet useEffect
 		${1}
 	},[]);
 
-snippet imr
-	import React from 'react'
 snippet imrc
-	import React, { Component } from 'react'
+	import { ${0} } from 'react'
 snippet imrr
 	import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 snippet redux
@@ -558,12 +568,7 @@ snippet imrmp
 snippet imrpc
 	import React, { PureComponent } from 'react'
 	
-# importReactWithPureComponentAndPropTypes
-snippet imrpcp
-	import React, { PureComponent } from 'react'
-	import PropTypes from 'prop-types'
-	
-	
+
 # importRouterLink
 snippet imbrl
 	import { Link } from 'react-router-dom'
@@ -729,7 +734,7 @@ snippet rnc
 	  render() {
 	    return (
 	      <View>
-	        <Text>${1:first}</Text>
+	        ${1}
 	      </View>
 	    )
 	  }
@@ -1226,57 +1231,109 @@ snippet hoc
 # ================================================
 # React Native Snippets
 # ================================================
-snippet rnfc
-	import React, { useState,useEffect } from 'react';
+snippet impexr
+	import { router } from "expo-router"
+
+snippet rnfce
+	import { useState,useEffect } from 'react';
 	import {
-	   View,Text,StyleSheet,
-	   FlatList,Alert,
-	   TouchableOpacity,
-	   Button,ScrollView,StatusBar,
-	   TextInput,Image
+	   View,Text
 	} from 'react-native';
-	import { NavigationContainer } from '@react-navigation/native';
-	import { createNativeStackNavigator } from '@react-navigation/native-stack';
 	
-	const Demo = () => {
-	   const Stack = createNativeStackNavigator()
-	   
+	const ${1:${TM_FILENAME_BASE}} = () => {
 	   return(
 	     <View>
-	      <Text>Hello</Text>
+	      <Text>Hello${2}</Text>
 	     </View>
 	   );
 	};
 	
-	const styles = StyleSheet.create({
-	   container:{
-	      
-	   }
-	})
-	
-	export default Demo;
+	export default ${1:${TM_FILENAME_BASE}};
 
 snippet Imagelo
-	<Image source={require('')} />
+	<Image 
+		source={${0}} 
+		resizeMode="contain"
+		className=""
+	/>
 
 snippet Imageon
-	<Image source={{uri:''}} />
-
-snippet useNavigate
-	  <NavigationContainer>
-		  <Stack.Navigator initialRouteName='Home'>
-	       <Stack.Screen name="Home" component={Home} />
-	     </Stack.Navigator>
-	  </NavigationContainer>
+	<Image 
+		source={{ uri:'${0}' }} 
+		resizeMode="contain"
+		className=""
+	/>
 
 snippet View
-	<View>
-		<Text></Text>
+	<View className="">
+		${0}
 	</View>
 
 snippet Text
-	<Text></Text>
-	
+	<Text className="">${0}</Text>
+
+snippet TouchableOpacity
+	<TouchableOpacity
+		onPress={handlePress}
+		activeOpacity={0.7}
+		className=""
+		disabled={isLoading}
+	>
+	   <Text className=""
+	     Click Me${0}
+	   </Text>
+	</TouchableOpacity>
+
+snippet textinput
+	<TextInput 
+		className=""
+		value={value}
+		placeholder="placeholder"
+		placeholderTextColor="#7B7B8B"
+		onChangeText={handleChangeText}
+		secureTextEntry=""
+	/>
+
+snippet impmisc
+	import { SafeAreaView } from "react-native-safe-area-context";
+	import { StatusBar } from "expo-status-bar";
+
+snippet safeview
+	<SafeAreaView className="bg-primary h-full">
+		${0}
+	</SafeAreaView>
+
+snippet statusbar
+	<StatusBar backgroundColor="#161622" style="light" />
+
+snippet scrollview
+	<ScrollView
+		contentContainerStyle={{
+			height: "100%",
+		}}
+	>
+		${0}
+	</ScrollView>
+
+snippet flatlist
+	<FlatList
+		data={}
+		keyExtractor={(item) => item.id}
+		renderItem={({ item }) => (
+			
+		)}
+		ListHeaderComponent={() => (
+			
+		)}
+		ListEmptyComponent={() => (
+			
+		)}
+		refreshControl={}
+	/>
+
+snippet refresh
+	<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+
 
 # ================================================
 # Next.js Snippets
@@ -1284,6 +1341,11 @@ snippet Text
 snippet implink
 	import Link from 'next/link';
 	
+snippet linknext
+	<Link href="">
+		${1}
+	</Link>
+
 snippet improuter
 	import { useRouter } from 'next/router';
 
@@ -1385,9 +1447,9 @@ snippet getmodel
 # Javascript Snippets
 # ================================================
 snippet getcomment
-	// =========================================
-	// Authentication
-	// =========================================
+	// =====================================================================================================================
+	// ${0}
+	// =====================================================================================================================
 
 snippet getfetch
 	fetch('${0}')
