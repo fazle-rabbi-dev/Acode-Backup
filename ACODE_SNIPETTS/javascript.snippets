@@ -7,6 +7,9 @@ snippet impcomp
 snippet imprq
 	import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
+snippet userq
+	const { mutateAsync, data, isPending } = ${0}();
+
 snippet imph
 	import { ${0} } from "@/hooks"
 
@@ -29,7 +32,7 @@ snippet imppages
 	import { ${0} } from "@/pages"
 
 snippet impconst
-	import { ${0} } from "@/store"
+	import { ${0} } from "@/constants"
 
 snippet imprt
 	import { useLocation, useNavigate, Navigate } from "react-router-dom";
@@ -1460,10 +1463,15 @@ snippet getmodel
 # ================================================
 # Javascript Snippets
 # ================================================
-snippet getcomment
-	// =====================================================================================================================
-	// ${0}
-	// =====================================================================================================================
+snippet getcomment1
+	// ╭────────────────────────────────────────────────────────╮
+	// │			${0}
+	// ╰────────────────────────────────────────────────────────╯
+
+snippet getcomment2
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//			${0}
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 snippet getfetch
 	fetch('${0}')
